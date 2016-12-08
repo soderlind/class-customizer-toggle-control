@@ -34,22 +34,9 @@ $wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'my_co
 		'type'        => 'ios',// light, ios, flat
 ) ) );
 ```
-Three different types are availabe
+Three different types are available
 
-`light`:
-
-<img src="assets/light-off.png" width="570" />
-<img src="assets/light-on.png" width="570"/>
-
-`ios`:
-
-<img src="assets/ios-off.png" width="570"/>
-<img src="assets/ios-on.png" width="570"/>
-
-`flat`:
-
-<img src="assets/flat-off.png" width="570"/>
-<img src="assets/flat-on.png" width="570"/>
+<img src="assets/types.png" />
 
 ## Toggling the control title
 
