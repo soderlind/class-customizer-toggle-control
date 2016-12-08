@@ -38,18 +38,18 @@ Three different types are availabe
 
 `light`:
 
-<img src="assets/light-off.png" width="570" style="width:570px;" />
-<img src="assets/light-on.png" width="570" style="width:570px;"/>
+<img src="assets/light-off.png" width="570" />
+<img src="assets/light-on.png" width="570"/>
 
 `ios`:
 
-<img src="assets/ios-off.png" width="570" style="width:570px;"/>
-<img src="assets/ios-on.png" width="570" style="width:570px;"/>
+<img src="assets/ios-off.png" width="570"/>
+<img src="assets/ios-on.png" width="570"/>
 
 `flat`:
 
-<img src="assets/flat-off.png" width="570" style="width:570px;"/>
-<img src="assets/flat-on.png" width="570" style="width:570px;"/>
+<img src="assets/flat-off.png" width="570"/>
+<img src="assets/flat-on.png" width="570"/>
 
 ## Toggling the control title
 
