@@ -6,7 +6,7 @@ A generic toggle control you can use to replace the checkbox control.
 
 ## Demo
 
-I've added this control to my [customizer demo theme](https://github.com/soderlind/WordPress Customizer Toggle Control).
+I've added this control to my [customizer demo theme](https://github.com/soderlind/2016-customizer-demo).
 
 ## Installing the control
 
