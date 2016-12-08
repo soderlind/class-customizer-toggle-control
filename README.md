@@ -28,7 +28,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 ```php
 $wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'my_control', array(
-		'label'	      => esc_html__( 'Toggle me on or off', 'WordPress Customizer Toggle Control' ),
+		'label'	      => esc_html__( 'Toggle me on or off', 'my-lang' ),
 		'section'     => 'my_section',
 		'settings'    => 'my_setting',
 		'type'        => 'ios',// light, ios, flat
