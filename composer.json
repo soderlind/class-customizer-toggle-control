@@ -1,7 +1,7 @@
 {
 	"name": "soderlind/class-customizer-toggle-control",
 	"type": "wordpress-dropin",
-	"license": "GPL",
+	"license": "GPL-2.0-or-later",
 	"description": "WordPress Customizer Toggle Control is a generic toggle control you can use to replace the checkbox control.",
 	"homepage": "https://github.com/soderlind/class-customizer-toggle-control",
 	"authors": [
