@@ -1,5 +1,6 @@
 <?php
-class Customizer_Toggle_Control extends WP_Customize_Control {
+
+class Customizer_Toggle_Control extends \WP_Customize_Control {
 	public $type = 'ios';
 
 	/**
@@ -8,8 +9,8 @@ class Customizer_Toggle_Control extends WP_Customize_Control {
 	 * @since 3.4.0
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'customizer-toggle-control', get_stylesheet_directory_uri() . '/js/customizer-toggle-control.js', array( 'jquery' ), rand(), true );
-		wp_enqueue_style( 'pure-css-toggle-buttons', get_stylesheet_directory_uri() . '/pure-css-toggle-buttons/pure-css-togle-buttons.css', array(), rand() );
+		wp_enqueue_script( 'customizer-toggle-control', $this->abs_path_to_url( dirname( __FILE__ ) . '/js/customizer-toggle-control.js' ), array( 'jquery' ), rand(), true );
+		wp_enqueue_style( 'pure-css-toggle-buttons', $this->abs_path_to_url( dirname( __FILE__ ) . '/pure-css-toggle-buttons/pure-css-togle-buttons.css' ), array(), rand() );
 
 		$css = '
 			.disabled-control-title {
@@ -37,7 +38,7 @@ class Customizer_Toggle_Control extends WP_Customize_Control {
 			}
 
 		';
-		wp_add_inline_style( 'pure-css-toggle-buttons' , $css );
+		wp_add_inline_style( 'pure-css-toggle-buttons', $css );
 	}
 
 	/**
@@ -51,13 +52,34 @@ class Customizer_Toggle_Control extends WP_Customize_Control {
 		<label>
 			<div style="display:flex;flex-direction: row;justify-content: flex-start;">
 				<span class="customize-control-title" style="flex: 2 0 0; vertical-align: middle;"><?php echo esc_html( $this->label ); ?></span>
-				<input id="cb<?php echo $this->instance_number ?>" type="checkbox" class="tgl tgl-<?php echo $this->type?>" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
-				<label for="cb<?php echo $this->instance_number ?>" class="tgl-btn"></label>
+				<input id="cb<?php echo $this->instance_number; ?>" type="checkbox" class="tgl tgl-<?php echo $this->type; ?>" value="<?php echo esc_attr( $this->value() ); ?>"
+										<?php
+										$this->link();
+										checked( $this->value() );
+										?>
+				 />
+				<label for="cb<?php echo $this->instance_number; ?>" class="tgl-btn"></label>
 			</div>
 			<?php if ( ! empty( $this->description ) ) : ?>
 			<span class="description customize-control-description"><?php echo $this->description; ?></span>
 			<?php endif; ?>
 		</label>
 		<?php
+	}
+
+	/**
+	 * Plugin / theme agnostic path to URL
+	 *
+	 * @see https://wordpress.stackexchange.com/a/264870/14546
+	 * @param string $path  file path
+	 * @return string       URL
+	 */
+	private function abs_path_to_url( $path = '' ) {
+		$url = str_replace(
+			wp_normalize_path( untrailingslashit( ABSPATH ) ),
+			site_url(),
+			wp_normalize_path( $path )
+		);
+		return esc_url_raw( $url );
 	}
 }
