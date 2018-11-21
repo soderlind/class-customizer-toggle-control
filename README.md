@@ -10,7 +10,24 @@ I've added this control to my [customizer demo theme](https://github.com/soderli
 
 ## Installing the control
 
-Clone this repository and include the class:
+Add the following to your composer.json file and run `composer update`
+
+```javascript
+"require": {
+	"soderlind/class-customizer-toggle-control": "dev-master"
+},
+"extra": {
+	"installer-paths": {
+		"inc/{$name}": [
+			"soderlind/class-customizer-toggle-control"
+		]
+	}
+}
+```
+
+or, clone the repo into `inc`
+
+## Include the class
 
 ```php
 /**
@@ -20,7 +37,7 @@ Clone this repository and include the class:
  * @see _wp_customize_include()
  */
 if ( class_exists( 'WP_Customize_Control' ) ) {
-	require_once( dirname(__FILE) . '/class-customizer-toggle-control.php' );
+	require_once  dirname( __FILE__ ) . '/inc/class-customizer-toggle-control/class-customizer-toggle-control.php';
 }
 ```
 
