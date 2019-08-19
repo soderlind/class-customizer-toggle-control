@@ -49,7 +49,7 @@ class Customizer_Toggle_Control extends \WP_Customize_Control {
 	 */
 	public function render_content() {
 		?>
-		<label>
+		<label class="customize-toogle-label">
 			<div style="display:flex;flex-direction: row;justify-content: flex-start;">
 				<span class="customize-control-title" style="flex: 2 0 0; vertical-align: middle;"><?php echo esc_html( $this->label ); ?></span>
 				<input id="cb<?php echo $this->instance_number; ?>" type="checkbox" class="tgl tgl-<?php echo $this->type; ?>" value="<?php echo esc_attr( $this->value() ); ?>"
