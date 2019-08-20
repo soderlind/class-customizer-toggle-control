@@ -7,13 +7,23 @@
 	wp.customize.bind( 'ready', function() { // Ready?
 
 		var customize = this; // Customize object alias.
-		// Array with the control names
-		// TODO: Replace #CONTROLNAME01#, #CONTROLNAME02# etc with the real control names.
-		var toggleControls = [
-			'#CONTROLNAME01#',
-			'#CONTROLNAME02#'
-		];
-		$.each( toggleControls, function( index, control_name ) {
+
+		//get the toggle controls
+		var toggleControls = $('.customize-toogle-label').parent();
+
+		var toggleControlIds = [];
+
+		//Segment in the id of the control that is added by wordpress, but not needed for our purpose
+		var idSegment = "customize-control-";
+
+		//fill the id array
+		for (var control of toggleControls){
+			//remove the segment from the control id
+			var controlId = control.id.substring(idSegment.length, control.id.length);
+			toggleControlIds.push(controlId);
+		}
+
+		$.each( toggleControlIds, function( index, control_name ) {
 			customize( control_name, function( value ) {
 				var controlTitle = customize.control( control_name ).container.find( '.customize-control-title' ); // Get control  title.
 				// 1. On loading.
